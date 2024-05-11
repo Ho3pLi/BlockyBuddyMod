@@ -15,11 +15,13 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
+import static com.mylifeblike.blockybuddymod.init.CreativeTabInit.addToTab;
+
 public class ItemInit {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, BlockyBuddyMod.MODID);
 
-    public static final DeferredHolder<Item, Item> test = ITEMS.register("test",
+    public static final DeferredHolder<Item, Item> test = addToTab(ITEMS.register("test",
             () -> new Item(new Item.Properties()
                     .stacksTo(16)
                     .food(new FoodProperties.Builder()
@@ -28,9 +30,9 @@ public class ItemInit {
                             .build())
                     .rarity(Rarity.EPIC)
             )
-    );
+    ));
 
-    public static final DeferredHolder<Item, SpawnEggItem> BB_SPAWN_EGG = ITEMS.register("bbspawnegg",
+    public static final DeferredHolder<Item, Item> BB_SPAWN_EGG = addToTab(ITEMS.register("bbspawnegg",
             () -> new SpawnEggItem(EntityType.PIG, 0xF0ABD1, 0xAE4C82, new Item.Properties())
-    );
+    ));
 }

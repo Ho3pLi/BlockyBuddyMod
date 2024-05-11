@@ -36,13 +36,14 @@ public class CreativeTabInit {
         return itemLike;
     }
 
-    // @SubscribeEvent
-    // public static void buildContents(BuildCreativeModeTabContentsEvent event) {
-    //     if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
-    //         event.accept(ItemInit.BB_SPAWN_EGG);
-    //     }
-    //     if (event.getTabKey() == BB_TAB.get()){
-    //         event.accept(Items.CROSSBOW);
-    //     }
-    // }
+//     Method to add an item to an existing tab
+//     @SubscribeEvent
+//     public static void buildContents(BuildCreativeModeTabContentsEvent event) {
+//         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
+//             event.accept((ItemLike) ItemInit.BB_SPAWN_EGG);
+//         }
+//         if (event.getTab() == BB_TAB.get()){
+//             event.accept(Items.CROSSBOW);
+//         }
+//     }
 }
