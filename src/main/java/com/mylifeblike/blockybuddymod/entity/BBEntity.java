@@ -1,18 +1,16 @@
-package net.ho3pli.blockybuddymod.entity.custom;
+package com.mylifeblike.blockybuddymod.entity;
 
-import net.ho3pli.blockybuddymod.BlockyBuddyMod;
-import net.ho3pli.blockybuddymod.entity.ModEntities;
+import com.mylifeblike.blockybuddymod.init.EntityInit;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.goal.TryFindWaterGoal;
-import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.world.level.LevelAccessor;
 
 public class BBEntity extends LivingEntity {
     public BBEntity(EntityType<BBEntity> type, Level level) {
@@ -20,7 +18,7 @@ public class BBEntity extends LivingEntity {
     }
 
     public BBEntity(Level level, double x, double y, double z){
-        this(ModEntities.entityHolder.get(), level);
+        this(EntityInit.entityHolder.get(), level);
         setPos(x, y, z);
     }
 
@@ -46,6 +44,24 @@ public class BBEntity extends LivingEntity {
     @Override
     public HumanoidArm getMainArm() {
         return null;
+    }
+
+//    protected void registerGoals(){
+//        this.goalSelector.addGoal(0, new FloatGoal(this));
+//        this.goalSelector.addGoal(1, new TryFindWaterGoal(this));
+//    }
+
+    public static AttributeSupplier.Builder createAttributes(){
+        return Player.createAttributes();
+    }
+
+    protected static boolean isBrightEnoughToSpawn(BlockAndTintGetter level, BlockPos position) {
+        return level.getRawBrightness(position, 0) > 8;
+    }
+
+    public static boolean canSpawn(EntityType<BBEntity> entityType, LevelAccessor level, MobSpawnType spawnType, BlockPos position, RandomSource random){
+        boolean flag = MobSpawnType.ignoresLightRequirements(spawnType) || isBrightEnoughToSpawn(level, position);
+        return level.getBlockState(position.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON) && flag;
     }
 
 //    public BBEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
