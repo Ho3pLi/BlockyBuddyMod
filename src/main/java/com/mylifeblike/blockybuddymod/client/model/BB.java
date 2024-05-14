@@ -1,15 +1,20 @@
-package net.ho3pli.blockybuddymod.entity.client;
+package com.mylifeblike.blockybuddymod.client.model;
 
+import com.mylifeblike.blockybuddymod.BlockyBuddyMod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.EntityModel;
+import com.mylifeblike.blockybuddymod.entity.BBEntity;
 import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.resources.ResourceLocation;
 
-public class BB<T extends Entity> extends HierarchicalModel<T> {
+public class BB<T extends BBEntity> extends HierarchicalModel<T> {
+
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BlockyBuddyMod.MODID, "example_entity"), "main");
+
 	private final ModelPart head;
 	private final ModelPart headwear;
 	private final ModelPart body;
