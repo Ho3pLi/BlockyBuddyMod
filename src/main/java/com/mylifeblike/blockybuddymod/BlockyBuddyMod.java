@@ -1,6 +1,7 @@
-package net.ho3pli.blockybuddymod;
+package com.mylifeblike.blockybuddymod;
 
-import net.ho3pli.blockybuddymod.entity.ModEntities;
+import com.mylifeblike.blockybuddymod.init.EntityInit;
+import com.mylifeblike.blockybuddymod.init.ItemInit;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -50,8 +51,8 @@ public class BlockyBuddyMod {
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public BlockyBuddyMod(IEventBus modEventBus, ModContainer modContainer) {
 
-        ModEntities.register(modEventBus);
-
+        EntityInit.register(modEventBus);
+        ItemInit.ITEMS.register(modEventBus);
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -71,7 +72,7 @@ public class BlockyBuddyMod {
         modEventBus.addListener(this::addCreative);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+//        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
