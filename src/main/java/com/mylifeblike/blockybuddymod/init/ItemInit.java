@@ -15,7 +15,7 @@ public class ItemInit {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, BlockyBuddyMod.MODID);
 
-    public static final DeferredHolder<Item, Item> BB_SPAWN_EGG = ITEMS.register("exampleItemName",
+    public static final DeferredHolder<Item, Item> BB_SPAWN_EGG = ITEMS.register("exampleitemname",
             ()-> new Item(new Item.Properties()
                     .stacksTo(16)
                     .food(new FoodProperties.Builder()
