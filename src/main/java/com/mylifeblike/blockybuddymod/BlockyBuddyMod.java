@@ -22,7 +22,7 @@ public class BlockyBuddyMod {
 
     public BlockyBuddyMod(IEventBus modEventBus) {
 
-//        EntityInit.register(modEventBus);
+        EntityInit.register(modEventBus);
         ItemInit.ITEMS.register(modEventBus);
 
 //        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

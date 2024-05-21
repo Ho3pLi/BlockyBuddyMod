@@ -10,14 +10,17 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.function.Supplier;
+
 public class EntityInit {
     public static  final DeferredRegister<EntityType<?>> entityRegister = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, BlockyBuddyMod.MODID);
 
-    public static final DeferredHolder<EntityType<?>, EntityType<BBEntity>> entityHolder = entityRegister.register("BB",
+    public static final DeferredHolder<EntityType<?>, EntityType<BBEntity>> entityHolder = entityRegister.register("bb",
                 ()-> EntityType.Builder.<BBEntity>of(BBEntity::new, MobCategory.CREATURE)
                         .sized(1.0f, 1.0f)
-                        .build(new ResourceLocation(BlockyBuddyMod.MODID, "BB").toString())
+                        .build(new ResourceLocation(BlockyBuddyMod.MODID, "bb").toString())
     );
+
     public static void register(IEventBus eventBus){
         entityRegister.register(eventBus);
     }

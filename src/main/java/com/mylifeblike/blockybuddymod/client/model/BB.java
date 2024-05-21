@@ -13,7 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class BB<T extends BBEntity> extends HierarchicalModel<T> {
 
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BlockyBuddyMod.MODID, "example_entity"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BlockyBuddyMod.MODID, "bb"), "main");
 
 	private final ModelPart head;
 	private final ModelPart headwear;
