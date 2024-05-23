@@ -1,5 +1,6 @@
 package com.mylifeblike.blockybuddymod;
 
+import com.mylifeblike.blockybuddymod.init.CreativeTabInit;
 import com.mylifeblike.blockybuddymod.init.EntityInit;
 import com.mylifeblike.blockybuddymod.init.ItemInit;
 import net.neoforged.api.distmarker.Dist;
@@ -24,6 +25,7 @@ public class BlockyBuddyMod {
 
         EntityInit.register(modEventBus);
         ItemInit.ITEMS.register(modEventBus);
+        CreativeTabInit.TABS.register(modEventBus);
 
 //        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }

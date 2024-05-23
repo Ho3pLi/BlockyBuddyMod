@@ -1,5 +1,6 @@
 {
   "entity.bbmod.BBEntity": "Blocky Buddy",
   "item.bbmod.test": "Test",
-  "item.bbmod.bbspawnegg": "BB Spawn Egg"
+  "item.bbmod.bbspawnegg": "BB Spawn Egg",
+  "itemGroup.bbtab": "BB Tab"
 }
